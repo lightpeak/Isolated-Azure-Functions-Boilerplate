@@ -1,12 +1,12 @@
 using System.Net;
-using IsolatedReview.Domain.Models;
-using IsolatedReview.Domain.Settings;
+using LightPeak.Domain.Models;
+using LightPeak.Domain.Settings;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace IsolatedReview.Functions
+namespace LightPeak.Functions
 {
     public class HeroFunctions
     {
@@ -34,6 +34,8 @@ namespace IsolatedReview.Functions
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
             var test = _myOptions.MyFirstSecret;
+
+            _logger.LogInformation(test);
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.WriteAsJsonAsync(heroes);

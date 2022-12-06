@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IsolatedReview.Domain\IsolatedReview.Domain.csproj" />
+    <ProjectReference Include="..\IsolatedReview.Domain\LightPeak.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">

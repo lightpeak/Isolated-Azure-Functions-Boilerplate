@@ -1,4 +1,4 @@
-﻿namespace IsolatedReview.Domain.Models
+﻿namespace LightPeak.Domain.Models
 {
     public class Hero
     {

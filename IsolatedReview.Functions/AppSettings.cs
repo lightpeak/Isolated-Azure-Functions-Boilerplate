@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IsolatedReview.Functions
+namespace LightPeak.Functions
 {
     public class AppSettings
     {

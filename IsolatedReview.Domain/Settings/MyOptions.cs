@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IsolatedReview.Domain.Settings
+namespace LightPeak.Domain.Settings
 {
     public class MyOptions
     {

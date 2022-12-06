@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsolatedReview.Functions", "IsolatedReview.Functions\IsolatedReview.Functions.csproj", "{0A192E51-C802-42EB-94B2-24470280DFAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightPeak.Functions", "IsolatedReview.Functions\LightPeak.Functions.csproj", "{0A192E51-C802-42EB-94B2-24470280DFAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsolatedReview.Domain", "IsolatedReview.Domain\IsolatedReview.Domain.csproj", "{71671123-9F78-4646-816B-F0E6731D950C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightPeak.Domain", "IsolatedReview.Domain\LightPeak.Domain.csproj", "{71671123-9F78-4646-816B-F0E6731D950C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

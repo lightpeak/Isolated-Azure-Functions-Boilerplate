@@ -3,7 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Azure.Extensions.AspNetCore.Configuration.Secrets;
-using IsolatedReview.Domain.Settings;
+using LightPeak.Domain.Settings;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
@@ -12,10 +12,9 @@ var host = new HostBuilder()
     .ConfigureAppConfiguration((context, builder) =>
     {
         builder.AddEnvironmentVariables();
-        var builtConfig = builder.Build();
-        var secretClient = new SecretClient(new Uri(builtConfig["VaultUri"]), new DefaultAzureCredential());
+        var config = builder.Build();
+        var secretClient = new SecretClient(new Uri(config["VaultUri"]), new DefaultAzureCredential());
         builder.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
-        builder.Build();
     })
     .ConfigureServices((context, services) =>
     {
