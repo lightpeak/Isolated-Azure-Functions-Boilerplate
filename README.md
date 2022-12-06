@@ -1,2 +1,2 @@
 # 🧙‍♂️ Isolated Azure Functions BoilerPlate
-For retrieving secrets from an ```Azure KeyVault```, and making them available using ```Dependency Injection``` and the ```Options Pattern``` (based on the 'Encapsulation' and 'Separation of Concerns' principles) as recommended by Microsoft: [link](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0).
+For retrieving secrets from an ```Azure KeyVault``` and making them available using ```Dependency Injection``` + the ```Options Pattern``` (based on the 'Encapsulation' and 'Separation of Concerns' principles) as recommended by Microsoft: [link](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0).
