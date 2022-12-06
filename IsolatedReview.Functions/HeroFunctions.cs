@@ -22,20 +22,21 @@ namespace LightPeak.Functions
             new Hero("Thor"),
         };
 
-        public HeroFunctions(ILoggerFactory loggerFactory, IOptions<MyOptions> myOptions)
+        public HeroFunctions(ILogger<HeroFunctions> logger, IOptions<MyOptions> myOptions)
         {
-            _logger = loggerFactory.CreateLogger<HeroFunctions>();
+            _logger = logger;
             _myOptions = myOptions.Value;
+            // More info about the different types of interfaces:
+            // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0#options-interfaces
         }
 
         [Function("GetHeroes")]
         public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
-
-            var test = _myOptions.MyFirstSecret;
-
-            _logger.LogInformation(test);
+            // the secret is now simply accessable through a property
+            // hooray for DI and Options Pattern
+            var mySecret = _myOptions.MySecret;
+            _logger.LogInformation($"The value of MySecret is: '{mySecret}'.");
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.WriteAsJsonAsync(heroes);
