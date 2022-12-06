@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "IsolatedReview.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7024",
+      "environmentVariables": {
+        "VaultUri": "https://jbo.vault.azure.net/"
+      }
+    }
+  }
+}
