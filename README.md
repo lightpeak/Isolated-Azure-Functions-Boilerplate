@@ -1,1 +1,1 @@
-# IsolatedReview
+# Isolated Functions with Azure KeyVault, Dependency Injection and Options Pattern
