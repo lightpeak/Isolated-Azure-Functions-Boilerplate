@@ -11,14 +11,13 @@ var host = new HostBuilder()
     .ConfigureAppConfiguration((context, builder) =>
     {
         // Store the Vault Uri in an Environment Variable, dev/test/prod can have their own KeyVault
-        builder.AddEnvironmentVariables();
         // After building the config, the Vault Uri will be available for configuring the Key Vault
         var config = builder.Build();
         var secretClient = new SecretClient(new Uri(config["VaultUri"]), new DefaultAzureCredential());
         builder.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
     })
     .ConfigureServices((context, services) =>
-    {
+    {        
         // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0
         services.Configure<MyOptions>(context.Configuration);
 

@@ -31,10 +31,9 @@ namespace LightPeak.Functions
         }
 
         [Function("GetHeroes")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+        public HttpResponseData GetHeroes([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
         {
-            // the secret is now simply accessable through a property
-            // hooray for DI and Options Pattern
+            // the secret is now easily accessable
             var mySecret = _myOptions.MySecret;
             _logger.LogInformation($"The value of MySecret is: '{mySecret}'.");
 
@@ -42,6 +41,14 @@ namespace LightPeak.Functions
             response.WriteAsJsonAsync(heroes);
 
             return response;
+        }
+
+        [Function("ServiceBusFunction")]
+        [ServiceBusOutput("lightpeak-queue")]
+        public string SendHeroToQueue([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+        {
+            var message = $"Output message created at {DateTime.Now}";
+            return message;
         }
     }
 }
