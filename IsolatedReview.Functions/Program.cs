@@ -17,11 +17,8 @@ var host = new HostBuilder()
         builder.AddAzureKeyVault(secretClient, new KeyVaultSecretManager());
     })
     .ConfigureServices((context, services) =>
-    {        
-        // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0
-        services.Configure<MyOptions>(context.Configuration);
-
-        /* Extracted:
+    {
+        /*
         The options pattern uses classes to provide strongly typed access to groups of related settings.
         When configuration settings are isolated by scenario into separate classes,
         the app adheres to two important software engineering principles:
@@ -32,6 +29,9 @@ var host = new HostBuilder()
                 Settings for different parts of the app aren't dependent or coupled to one another.
                 Options also provide a mechanism to validate configuration data.
         */
+
+        // https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-6.0
+        services.Configure<MyOptions>(context.Configuration);
     })
     .Build();
 

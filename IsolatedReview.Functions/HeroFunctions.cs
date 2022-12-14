@@ -13,15 +13,6 @@ namespace LightPeak.Functions
         private readonly ILogger _logger;
         private readonly MyOptions _myOptions;
 
-        private List<Hero> heroes = new List<Hero>()
-        {
-            new Hero("Spiderman"),
-            new Hero("Batman"),
-            new Hero("Ironman"),
-            new Hero("Doctor Strange"),
-            new Hero("Thor"),
-        };
-
         public HeroFunctions(ILogger<HeroFunctions> logger, IOptions<MyOptions> myOptions)
         {
             _logger = logger;
@@ -37,15 +28,24 @@ namespace LightPeak.Functions
             var mySecret = _myOptions.MySecret;
             _logger.LogInformation($"The value of MySecret is: '{mySecret}'.");
 
+            var heroes = new List<Hero>()
+            {
+                new Hero("Spiderman"),
+                new Hero("Batman"),
+                new Hero("Ironman"),
+                new Hero("Doctor Strange"),
+                new Hero("Thor"),
+            };
+
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.WriteAsJsonAsync(heroes);
 
             return response;
         }
 
-        [Function("ServiceBusFunction")]
-        [ServiceBusOutput("lightpeak-queue")]
-        public string SendHeroToQueue([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
+        [Function("PutMessageOnServiceBus")]
+        [ServiceBusOutput("lightpeak-queue", Connection = "AzureWebJobsServiceBus")]
+        public string PutMessageOnServiceBus([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
         {
             var message = $"Output message created at {DateTime.Now}";
             return message;
